@@ -7,7 +7,7 @@ class QiskitWorkout():
         thread.daemon = True
         thread.start()
         quantumusic(f'run MyWorker with parameter {self.message}')
-
+    
     def quantumMusic(self):
         note = self.message
         circuit = QuantumCircuit(4, 3)
