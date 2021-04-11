@@ -1,1 +1,1 @@
-web: gunicorn qiskitFetcher:app
+web: python qiskitFetcher.py
