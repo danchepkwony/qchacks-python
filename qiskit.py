@@ -11,6 +11,7 @@ backend = least_busy(provider.backends(filters=lambda x: x.configuration().n_qub
                                    x.configuration().n_qubits >= 2 and
                                    not x.configuration().simulator and x.status().operational==True))
 
+@app.route('/')
 def quantumMusic(note):
     circuit = QuantumCircuit(4, 3)
     circuit.h(3)
