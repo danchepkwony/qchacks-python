@@ -1,6 +1,8 @@
 #!python3
 #This code implements Bernstein-Vazirani algorithm and
 #follows the tutorial found here: https://qiskit.org/textbook/ch-algorithms/bernstein-vazirani.html
+from flask import Flask
+app = Flask(__name__)
 
 from qiskit import *
 from qiskit.providers.ibmq import least_busy
