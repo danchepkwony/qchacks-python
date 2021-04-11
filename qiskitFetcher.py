@@ -6,8 +6,8 @@ app = Flask(__name__)
 from qiskit import *
 from qiskit.providers.ibmq import least_busy
     
-provider = IBMQ.save_account('daffffa40c20d3f39cbcd68720561cec5e7cffa25c8f863423ffbf18e3c79b8fa07253d502fa37210e4177c176a282d56e54ba665541c2f272ac07eca13580b8')
-
+IBMQ.save_account('daffffa40c20d3f39cbcd68720561cec5e7cffa25c8f863423ffbf18e3c79b8fa07253d502fa37210e4177c176a282d56e54ba665541c2f272ac07eca13580b8')
+provider = IBMQ.load_account()
 backend = provider.get_backend('ibmq_qasm_simulator')
 
 @app.route('/')
