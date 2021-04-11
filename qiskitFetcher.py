@@ -6,11 +6,12 @@ app = Flask(__name__)
 from qiskit import *
 from qiskit.providers.ibmq import least_busy
 
-IBMQ.save_account('daffffa40c20d3f39cbcd68720561cec5e7cffa25c8f863423ffbf18e3c79b8fa07253d502fa37210e4177c176a282d56e54ba665541c2f272ac07eca13580b8')
-provider = IBMQ.get_provider(hub='ibm-q')
-backend = least_busy(provider.backends(filters=lambda x: x.configuration().n_qubits <= 5 and
-                                   x.configuration().n_qubits >= 2 and
-                                   not x.configuration().simulator and x.status().operational==True))
+provider = IBMQ.load_account()
+
+if(!provider):
+    provider = IBMQ.save_account('daffffa40c20d3f39cbcd68720561cec5e7cffa25c8f863423ffbf18e3c79b8fa07253d502fa37210e4177c176a282d56e54ba665541c2f272ac07eca13580b8')
+
+backend = provider.get_backend('ibmq_qasm_simulator')
 
 @app.route('/')
 def quantumMusic(note):
