@@ -12,8 +12,8 @@ class QiskitWorkout():
         thread = threading.Thread(target=self.run, args=())
         thread.daemon = True
         thread.start()
-        
-    def run(self)
+
+    def run(self):
         note = self.message
         circuit = QuantumCircuit(4, 3)
         circuit.h(3)
