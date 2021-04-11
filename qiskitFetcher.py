@@ -10,7 +10,7 @@ IBMQ.save_account('daffffa40c20d3f39cbcd68720561cec5e7cffa25c8f863423ffbf18e3c79
 provider = IBMQ.load_account()
 backend = provider.get_backend('ibmq_qasm_simulator')
 
-@app.route('/')
+@app.route('/', methods = ['POST', 'GET'])
 def quantumMusic(note):
     circuit = QuantumCircuit(4, 3)
     circuit.h(3)
