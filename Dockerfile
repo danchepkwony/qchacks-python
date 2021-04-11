@@ -5,6 +5,7 @@ ADD ./webapp/requirements.txt /tmp/requirements.txt
 
 # Install dependencies
 RUN pip install -qr /tmp/requirements.txt
+RUN pip install qiskit
 
 # Add our code
 ADD ./webapp /opt/webapp/
