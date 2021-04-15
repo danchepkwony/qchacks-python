@@ -6,13 +6,13 @@ provider = IBMQ.load_account()
 backend = provider.get_backend('ibmq_qasm_simulator')
 
 class QiskitWorkout():
-   def __init__(self, message):
+    def __init__(self, message):
         self.message = message
 
         thread = threading.Thread(target=self.run, args=())
         thread.daemon = True
         thread.start()
-
+    
     def run(self):
         note = self.message
         circuit = QuantumCircuit(4, 3)
